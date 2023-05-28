@@ -31,29 +31,9 @@ void test_addition() {
 int main() {
 	std::cout << "Fixed point number test" << '\n';
 
-
 	test_integer_conversion();
 	test_double_conversion();
 	test_addition();
-
-	// std::cout << "x=" << double(x) << '\n';
-	// std::cout << "y=" << double(y) << '\n';
-	//
-	// std::cout << "Addition" << '\n';
-	// z = x + y;
-	// std::cout << double(z) << '\n';
-	//
-	// std::cout << "Subtraction" << '\n';
-	// z = x - y;
-	// std::cout << double(x-y) << '\n';
-	//
-	// std::cout << "Multiplication" << '\n';
-	// z = x * y;
-	// std::cout << double(x*y) << '\n';
-	//
-	// std::cout << "Division" << '\n';
-	// z = x / y;
-	// std::cout << double(x/y) << '\n';
 
 	return 0;
 }
