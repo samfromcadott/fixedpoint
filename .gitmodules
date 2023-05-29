@@ -1,0 +1,3 @@
+[submodule "boost-test"]
+	path = boost-test
+	url = https://github.com/boostorg/test
