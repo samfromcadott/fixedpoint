@@ -26,3 +26,10 @@ TEST_CASE("Test conversion to double") {
 	CHECK( double(d) == -2);
 	CHECK( double(e) == -2.5);
 }
+
+TEST_CASE("Equality") {
+	real a(2);
+	real b(2);
+
+	CHECK(a == b);
+}

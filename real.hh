@@ -39,6 +39,10 @@ public:
 		return *this;
 	}
 
+	bool operator==(const real& other) {
+		return value == other.value;
+	}
+
 	// Type conversions
 	operator long() const {
 		long n = value;
