@@ -10,77 +10,77 @@ private:
 
 public:
 	// Operators
-	real operator+(real other) {
+	inline real operator+(real other) {
 		real result;
 		result.value = value + other.value;
 		return result;
 	}
 
-	real operator-(real other) {
+	inline real operator-(real other) {
 		real result;
 		result.value = value - other.value;
 		return result;
 	}
 
-	real operator*(real other) {
+	inline real operator*(real other) {
 		real result;
 		result.value = (value * other.value) >> shift;
 		return result;
 	}
 
-	real operator/(real other) {
+	inline real operator/(real other) {
 		real result;
 		result.value = (value << shift) / other.value;
 		return result;
 	}
 
-	real& operator=(const real& other) {
+	inline real& operator=(const real& other) {
 		value = other.value;
 		return *this;
 	}
 
-	bool operator==(const real& other) {
+	inline bool operator==(const real& other) {
 		return value == other.value;
 	}
 
 	// Type conversions
-	operator long() const {
+	inline operator long() const {
 		long n = value;
 		n >>= shift;
 		n |= (unsigned long)(value<0) << 63; // Apply the sign
 		return n;
 	}
 
-	operator float() const {
+	inline operator float() const {
 		return float(value) / float(ONE);
 	}
 
-	operator double() const {
+	inline operator double() const {
 		return double(value) / double(ONE);
 	}
 
 	// Constructors
-	real() {
+	inline real() {
 		value = 0;
 	}
 
-	real(const long value) {
+	inline real(const long value) {
 		long n = value;
 		this->value = n << shift;
 		this->value |= (unsigned long)(value<0) << 63; // Apply the original sign
 	}
 
-	real(const int value) {
+	inline real(const int value) {
 		long n = value;
 		this->value = n << shift;
 		this->value |= (unsigned long)(value<0) << 63; // Apply the original sign
 	}
 
-	real(const double value) {
+	inline real(const double value) {
 		this->value = long(value * ONE);
 	}
 
-	real(const float value) {
+	inline real(const float value) {
 		this->value = long(value * ONE);
 	}
 
