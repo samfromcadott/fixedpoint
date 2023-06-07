@@ -35,3 +35,15 @@ TEST_CASE("Equality") {
 	CHECK( ( real(-1) == real(1) ) == false );
 	CHECK( ( real(-1) == real(-1) ) == true );
 }
+
+TEST_CASE("Assignment") {
+	real a = 2;
+	real b = 2.5;
+	real c = 2.5f;
+	real d = a;
+
+	CHECK( a == real(2) );
+	CHECK( b == real(2.5) );
+	CHECK( c == real(2.5) );
+	CHECK(a == d);
+}

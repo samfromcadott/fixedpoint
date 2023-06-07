@@ -9,7 +9,7 @@ private:
 	static const int64_t ONE = int64_t(1) << shift; // 1.0 represented by this class
 
 public:
-	// Operators
+	// Arithmetic operators
 	inline real operator+(real other) {
 		real result;
 		result.value = value + other.value;
@@ -34,11 +34,33 @@ public:
 		return result;
 	}
 
+	// Assignment operators
 	inline real& operator=(const real& other) {
 		value = other.value;
 		return *this;
 	}
 
+	inline real& operator=(const int& other) {
+		*this = real(other);
+		return *this;
+	}
+
+	inline real& operator=(const int64_t& other) {
+		*this = real(other);
+		return *this;
+	}
+
+	inline real& operator=(const float& other) {
+		*this = real(other);
+		return *this;
+	}
+
+	inline real& operator=(const double& other) {
+		*this = real(other);
+		return *this;
+	}
+
+	// Comparison operators
 	inline bool operator==(const real& other) {
 		return value == other.value;
 	}
