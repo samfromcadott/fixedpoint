@@ -1,12 +1,12 @@
 #pragma once
 
-#include <iostream>
+#include <cstdint>
 
 class real {
 private:
-	long value;
-	static const long shift = 24; // The number of bits of the fractional part
-	static const long ONE = 1 << shift; // 1.0 represented by this class
+	int64_t value;
+	static const int64_t shift = 32; // The number of bits of the fractional part
+	static const int64_t ONE = int64_t(1) << shift; // 1.0 represented by this class
 
 public:
 	// Operators
@@ -45,7 +45,7 @@ public:
 
 	// Type conversions
 	inline operator long() const {
-		long n = value;
+		int64_t n = value;
 		n >>= shift;
 		n |= (unsigned long)(value<0) << 63; // Apply the sign
 		return n;
@@ -64,24 +64,24 @@ public:
 		value = 0;
 	}
 
-	inline real(const long value) {
-		long n = value;
+	inline real(const int64_t value) {
+		int64_t n = value;
 		this->value = n << shift;
-		this->value |= (unsigned long)(value<0) << 63; // Apply the original sign
+		this->value |= (int64_t)(value<0) << 63; // Apply the original sign
 	}
 
-	inline real(const int value) {
-		long n = value;
+	inline real(const int32_t value) {
+		int64_t n = value;
 		this->value = n << shift;
-		this->value |= (unsigned long)(value<0) << 63; // Apply the original sign
+		this->value |= (int64_t)(value<0) << 63; // Apply the original sign
 	}
 
 	inline real(const double value) {
-		this->value = long(value * ONE);
+		this->value = int64_t(value * ONE);
 	}
 
 	inline real(const float value) {
-		this->value = long(value * ONE);
+		this->value = int64_t(value * ONE);
 	}
 
 	virtual ~real(){}
