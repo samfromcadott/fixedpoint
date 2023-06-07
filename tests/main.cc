@@ -28,8 +28,10 @@ TEST_CASE("Test conversion to double") {
 }
 
 TEST_CASE("Equality") {
-	real a(2);
-	real b(2);
-
-	CHECK(a == b);
+	CHECK( ( real(2) == real(2) ) == true );
+	CHECK( ( real(2) == real(3) ) == false );
+	CHECK( ( real(0) == real(0) ) == true );
+	CHECK( ( real(0.5) == real(0.5) ) == true );
+	CHECK( ( real(-1) == real(1) ) == false );
+	CHECK( ( real(-1) == real(-1) ) == true );
 }
